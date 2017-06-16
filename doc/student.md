@@ -1,8 +1,6 @@
 # Diary of mysql
 
-## 学生信息管理系统
-
-## 数据库设计方案
+### 建3表
 
 ### 学生信息表设计（student）
 
@@ -28,7 +26,7 @@
 课程号|cno|varchar|not null|主键，外码
 成绩|score|int|null|暂无
 
-## CGI程序设计接口
+## sql语句设计
 学生信息表sql语句
 ```sql
 use stu;
