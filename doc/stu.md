@@ -25,3 +25,5 @@
 学号|sno|varchar|not null|主键，外码
 课程号|cno|varchar|not null|主键，外码
 成绩|score|int|null|暂无
+
+## CGI程序设计接口
