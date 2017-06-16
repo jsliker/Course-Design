@@ -77,3 +77,7 @@ rm  dir  -rf
 ls -d  dir
 find  ./dir  -name  "filename"
 ```
+
+参考：
+https://nts.newbieol.com
+菜鸟公开课
