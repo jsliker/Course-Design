@@ -66,3 +66,7 @@ foreign key(sno) references student(sno),
 primary key(cno,sno)
 );
 ```
+
+
+
+
