@@ -27,3 +27,42 @@
 成绩|score|int|null|暂无
 
 ## CGI程序设计接口
+学生信息表sql语句
+```sql
+use stu;
+
+create table student(
+sno varchar(20) not null,
+sname varchar(20) null,
+sex varchar(8) null,
+age int(4) null,
+primary key(sno)
+);
+```
+
+课程信息表sql语句
+```sql
+use stu;
+
+create table course(
+cno varchar(20) not null,
+cname varchar(20) null,
+credit int(20) null,
+dname varchar(20) null,
+primary key(cno)
+);
+```
+
+成绩表sql语句
+```sql
+use stu;
+
+create table score(
+cno varchar(20) not null,
+sno varchar(20) null,
+score int(20) null,
+foreign key(cno) references course(cno),
+foreign key(sno) references student(sno),
+primary key(cno,sno)
+);
+```
