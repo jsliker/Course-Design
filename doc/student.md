@@ -1,6 +1,6 @@
 # Diary of mysql
 
-### 建3表
+### 建3个表
 
 ### 学生信息表设计（student）
 
