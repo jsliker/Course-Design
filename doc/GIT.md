@@ -163,5 +163,51 @@ $ git reflog
 
 ![](../img/0003.jpg)
 
+可通过左侧黄色的commit ID进行版本回退
 
+### 从仓库中删除文件
+
+如果将文件从仓库中删除这个文件, 需要使用git rm.
+
+```
+$ git rm filename
+```
+
+这只是做了删除操作, 但没有真正的从仓库中删除, 我们只要将删除再做一次提交到仓库.
+
+```
+$ git commit
+```
+
+### 从版本库中忽略文件
+
+如果在我们的仓库目录里会产生三方的临时垃圾文件或是
+
+```
+$ touch .gitignore
+```
+
+### 版本之间对比
+
+$ git diff
+
+$ git diff commitID1 commitID2
+
+## 简述patch
+
+patch多指补丁的意思, 在这里更多的指程序有一些bug, 需要我们进行fixed, 那fixed源码文件就是patch.
+
+patch实际上是保存两个文件的差异.
+
+### git生成patch
+
+```
+$ git format-patch -p1
+```
+
+### git 打patch
+
+```
+$ git am patch-name
+```
 
