@@ -1,4 +1,4 @@
-Diary of git
+## Diary of git
 
 
 ### 初识git
