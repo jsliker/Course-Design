@@ -1,4 +1,14 @@
-## Diary of git
+## Diary of Linux
+
+### 在VMware工具里安装Linux系统ubuntu
+
+可在官方网址下载
+
+http://www.ubuntu.org.cn/index_kylin
+
+
+
+
 
 
 ### 初识git
@@ -9,7 +19,8 @@ GIT 是一个分布式版本控制软件，最初由林纳斯·托瓦兹（Linus
 
 #### git的安装
 
-使用下面的命令进行安装git工具.
+使用下面的命令在Linux系统下安装git工具.
 ```
 $ sudo apt-get install git
 ```
+
