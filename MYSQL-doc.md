@@ -56,3 +56,14 @@ mysql -u root -p
 当左侧为mysql>时，可输入show databases来查看数据库中数据
 
 输入exit命令可退出
+
+### 数据库操作
+
+查看数据库可已使用``` $ show databases ``` 查看已存在数据库
+
+同理若要查看库中表可通过
+```
+$ use <数据库名>
+$ show tables
+```
+
