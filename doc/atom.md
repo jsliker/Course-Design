@@ -9,17 +9,10 @@ Linux系统下在shell命令行中输入
 ```
 $ sudo wget -c <下载地址>
 ```
-
-下载完成后结果如下图
-
-![](../img/0002.jpg)
-
 然后开始安装
 
 ```
 $ sudo dpkt -i atom-amd64.deb
 ```
-结果如图
 
-![](../img/0004.jpg)
 
