@@ -18,7 +18,7 @@ $ sudo wget -c <下载地址>
 
 ```
 $ sudo dpkt -i atom-amd64.deb
-
+```
 结果如图
 
 ![](../img/0004.jpg)
