@@ -59,7 +59,7 @@ use stu;
 
 create table score(
 cno varchar(20) not null,
-sno varchar(20) null,
+sno varchar(20) not null,
 score int(20) null,
 foreign key(cno) references course(cno),
 foreign key(sno) references student(sno),
