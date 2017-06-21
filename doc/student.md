@@ -10,6 +10,7 @@
 学生姓名|sname|varchar|null|暂无
 性别|sex|varchar|null|暂无
 年龄|age|int|null|暂无
+状态|sta|int|1|判断是否真删除
 
 ### 课程信息表设计（course）
 中文名称| 表名| 字段属性| 默认值| 备注
@@ -18,6 +19,7 @@
 课程名|cname|varchar|null|暂无
 学分|credit|int|null|暂无
 院系|dname|varchar|null|暂无
+状态|sta|int|1|判断是否真删除
 
 ### 成绩信息表设计（score）
 中文名称| 表名| 字段属性| 默认值| 备注
@@ -25,6 +27,7 @@
 学号|sno|varchar|not null|主键，外码
 课程号|cno|varchar|not null|主键，外码
 成绩|score|int|null|暂无
+状态|sta|int|1|判断是否真删除
 
 ## sql语句设计
 学生信息表sql语句
@@ -36,6 +39,7 @@ sno varchar(20) not null,
 sname varchar(20) null,
 sex varchar(8) null,
 age int(4) null,
+sta int(2) not null,
 primary key(sno)
 );
 ```
@@ -49,6 +53,7 @@ cno varchar(20) not null,
 cname varchar(20) null,
 credit int(20) null,
 dname varchar(20) null,
+sta int(2) not null,
 primary key(cno)
 );
 ```
@@ -58,11 +63,15 @@ primary key(cno)
 use stu;
 
 create table score(
-cno varchar(20) not null,
-sno varchar(20) not null,
+cno varchar(20) character set utf8 not null,
+sno varchar(20) character set utf8 not null,
 score int(20) null,
-foreign key(cno) references course(cno),
-foreign key(sno) references student(sno),
+foreign key(cno) references course(cno)
+on delete cascade
+on update cascade,
+foreign key(sno) references student(sno)
+on delete cascade
+on update cascade,
 primary key(cno,sno)
 );
 ```
