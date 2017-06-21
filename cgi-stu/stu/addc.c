@@ -13,10 +13,10 @@ int cgiMain()
 {
 	FILE * fd;
 
-	char sname[32] = "\0";
-	char age[16] = "\0";
-	char sno[32] = "\0";
-	char sex[16] ="\0";
+	char cname[20] = "\0";
+	char credit[20] = "\0";
+	char cno[20] = "\0";
+	char dname[20] ="\0";
 	int status = 0;
 	char ch;
 
@@ -33,31 +33,31 @@ int cgiMain()
 		}
 		fclose(fd);
 
-	status = cgiFormString("sname",  sname, 32);
+	status = cgiFormString("cname",  cname, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get name error!\n");
+		fprintf(cgiOut, "get cname error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("age",  age, 16);
+	status = cgiFormString("credit",  credit, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get age error!\n");
+		fprintf(cgiOut, "get credit error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("sex",  sex, 16);
+	status = cgiFormString("dname",  dname, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get sex error!\n");
+		fprintf(cgiOut, "get dname error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("sno",  sno, 32);
+	status = cgiFormString("cno",  cno, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get sno error!\n");
+		fprintf(cgiOut, "get cno error!\n");
 		return 1;
 	}
 
@@ -100,7 +100,7 @@ int cgiMain()
 */
 
 
-	sprintf(sql, "insert into student values(%d, '%s', '%s', %d,1)", atoi(sno), sname, sex, atoi(age));
+	sprintf(sql, "insert into course values(%d, '%s', %d, '%s',1)", atoi(cno), cname, atoi(credit), dname);
 
 	mysql_set_character_set(db,"utf8");
 

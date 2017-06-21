@@ -52,11 +52,11 @@ int cgiMain()
 
 	if (sname[0] == '*')
 	{
-		sprintf(sql, "select * from student where sta=1");
+		sprintf(sql, "select sno,sname,sex,age from student where sta=1");
 	}
 	else
 	{
-		sprintf(sql, "select * from student where sname = '%s' and sta=1", sname);
+		sprintf(sql, "select sno,sname,sex,age from student where sname = '%s' and sta=1", sname);
 	}
 
 

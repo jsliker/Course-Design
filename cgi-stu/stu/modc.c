@@ -7,20 +7,19 @@
 char * headname ="head.html";
 //char * footname ="foot.html";
 
-
-
 int cgiMain()
 {
+
 	FILE * fd;
 
-	char sname[32] = "\0";
-	char age[16] = "\0";
-	char sno[32] = "\0";
-	char sex[16] ="\0";
+	char cname[20] = "\0";
+	char credit[20] = "\0";
+	char cno[20] = "\0";
+	char dname[20] = "\0";
 	int status = 0;
 	char ch;
 
-	fprintf(cgiOut, "Content-type:text/html;charset=utf8\n\n");
+	fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
 		if(!(fd = fopen(headname, "r"))){
 			fprintf(cgiOut, "Cannot open file, %s\n", headname);
 			return -1;
@@ -33,37 +32,37 @@ int cgiMain()
 		}
 		fclose(fd);
 
-	status = cgiFormString("sname",  sname, 32);
+	status = cgiFormString("cname",  cname, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get name error!\n");
+		fprintf(cgiOut, "get cname error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("age",  age, 16);
+	status = cgiFormString("credit",  credit, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get age error!\n");
+		fprintf(cgiOut, "get credit error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("sex",  sex, 16);
+	status = cgiFormString("dname",  dname, 16);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get sex error!\n");
+		fprintf(cgiOut, "get dname error!\n");
 		return 1;
 	}
 
-	status = cgiFormString("sno",  sno, 32);
+	status = cgiFormString("cno",  cno, 32);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get sno error!\n");
+		fprintf(cgiOut, "get cno error!\n");
 		return 1;
 	}
 
 	//fprintf(cgiOut, "name = %s, age = %s, stuId = %s\n", name, age, stuId);
 
-	//int ret;
+	int ret;
 	char sql[128] = "\0";
 	MYSQL *db;
 
@@ -85,33 +84,20 @@ int cgiMain()
 	}
 
 
-
-	/*
-	strcpy(sql, "create table stu(id int not null primary key, name varchar(20) not null, age int not null)");
-	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
-	{
-		if (ret != 1)
-		{
-			fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
-			mysql_close(db);
-			return -1;
-		}
-	}
-*/
-
-
-	sprintf(sql, "insert into student values(%d, '%s', '%s', %d,1)", atoi(sno), sname, sex, atoi(age));
+	sprintf(sql, "update course set cname='%s', credit='%d', dname= '%s' where cno = %d and sta=1", cname, atoi(credit), dname, atoi(cno));
 
 	mysql_set_character_set(db,"utf8");
 
-	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
+	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
-		fprintf(cgiOut, "%s\n", mysql_error(db));
+		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
 		mysql_close(db);
 		return -1;
 	}
 
-	fprintf(cgiOut, "add student ok!\n");
+
+
+	fprintf(cgiOut, "update course ok!\n");
 	mysql_close(db);
 	return 0;
 }

@@ -23,7 +23,7 @@ int cgiMain()
 		    <link rel=\"stylesheet\" href=\"/stu/public/css/bootstrap.min.css\">\
 		</head>");
 
-	char cname[20] = "\0";
+	char sno[20] = "\0";
 	int status = 0;
 	char ch;
 
@@ -39,30 +39,25 @@ int cgiMain()
 	}
 	fclose(fd);
 
-	status = cgiFormString("cname",  cname, 20);
+	status = cgiFormString("sno",  sno, 20);
 	if (status != cgiFormSuccess)
 	{
-		fprintf(cgiOut, "get cname error!\n");
+		fprintf(cgiOut, "get sno error!\n");
 		return 1;
 	}
 
 	int ret;
 	MYSQL *db;
 	char sql[128] = "\0";
+  if(sno[0]== '*'){
+sprintf(sql,"select score.cno,sname,cname,dname,score from student,score,course where student.sno=score.sno and course.cno=score.cno and student.sta=1 and course.sta=1 and score.sta=1");
 
-	if (cname[0] == '*')
-	{
-		sprintf(sql, "select cno,cname,credit,dname from course where sta=1");
-	}
-	else
-	{
-		sprintf(sql, "select cno,cname,credit,dname from course where cname = '%s' and sta=1", cname);
-	}
-
-
+  }else{
+	sprintf(sql,"select score.cno,sname,cname,dname,score from student,score,course where student.sno=score.sno and course.cno=score.cno and score.sno ='%s' and student.sta=1 and course.sta=1 and score.sta=1",sno);
+}
 	//初始化
 	db = mysql_init(NULL);
-		if (db == NULL)
+	if (db == NULL)
 	{
 		fprintf(cgiOut,"mysql_init fail:%s\n", mysql_error(db));
 		return -1;
@@ -77,7 +72,7 @@ int cgiMain()
 		return -1;
 	}
 
-	mysql_set_character_set(db,"utf8");
+  mysql_set_character_set(db,"utf8");
 
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
