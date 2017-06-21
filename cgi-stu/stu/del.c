@@ -57,9 +57,11 @@ int cgiMain()
 		mysql_close(db);
 		return -1;
 	}
-
-
+	if(sta[0]=='0'){
 	sprintf(sql, "update student set sta= %d where sno= %d", atoi(sta),atoi(sno));
+}else{
+	sprintf(sql, "delete from student where sno= %d", atoi(sno));
+}
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));
