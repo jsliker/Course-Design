@@ -84,7 +84,10 @@ int cgiMain()
 	}
 
 
-	sprintf(sql, "update student set sname='%s', sex='%s', age= %d where sno = %d ", sname, sex, atoi(age), atoi(sno));
+	sprintf(sql, "update student set sname='%s', sex='%s', age= %d where sno = %d and sta=1", sname, sex, atoi(age), atoi(sno));
+
+	mysql_set_character_set(db,"utf8");
+
 	if ((ret = mysql_real_query(db, sql, strlen(sql) + 1)) != 0)
 	{
 		fprintf(cgiOut,"mysql_real_query fail:%s\n", mysql_error(db));

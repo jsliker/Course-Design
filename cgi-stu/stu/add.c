@@ -20,7 +20,7 @@ int cgiMain()
 	int status = 0;
 	char ch;
 
-	fprintf(cgiOut, "Content-type:text/html;charset=utf-8\n\n");
+	fprintf(cgiOut, "Content-type:text/html;charset=utf8\n\n");
 		if(!(fd = fopen(headname, "r"))){
 			fprintf(cgiOut, "Cannot open file, %s\n", headname);
 			return -1;
@@ -101,6 +101,9 @@ int cgiMain()
 
 
 	sprintf(sql, "insert into student values(%d, '%s', '%s', %d)", atoi(sno), sname, sex, atoi(age));
+
+	mysql_set_character_set(db,"utf8");
+	
 	if (mysql_real_query(db, sql, strlen(sql) + 1) != 0)
 	{
 		fprintf(cgiOut, "%s\n", mysql_error(db));
