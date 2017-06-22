@@ -100,7 +100,7 @@ int cgiMain()
 */
 
 
-	sprintf(sql, "insert into student values(%d, '%s', '%s', %d,1)", atoi(sno), sname, sex, atoi(age));
+	sprintf(sql, "insert into student values('%s', '%s', '%s', %d,1)", sno, sname, sex, atoi(age));
 
 	mysql_set_character_set(db,"utf8");
 
