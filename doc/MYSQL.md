@@ -71,6 +71,34 @@ mysql -u root -p
 
 输入exit命令可退出
 
+## ATOM包的安装下载
+
+    wget -c url
+    sudo dpkg -i atom-amd64.deb
+    
+## Atom editor 开环境使用的插件
+
+```
+atom .:进入atom的界面，搜索需要的插件进行install,安装插件之后界面更加友好方便使用
+activate-power-mode：动感插件 atl + ctrl + o :打开插件
+vim-mode：vim模式
+ex-mode：实现:w功能
+monokai：高亮显示    //theme查找
+atom-ternjs：JavaScript 自动补全
+autoprefixer：给 CSS 添加适当的前缀
+color-picker：选颜色
+emmet：写 HTML 的神器
+atom-beautify：美化代码，空格啊什么什么的
+autoclose-html：HTML自动补全闭标签
+file-icons: 增加许多图标,在侧边蓝文件名前面的icon,,很赞
+autocomplete-modules: 自动补全插件, 有HTML, CSS, python 等
+highlight-selected: 高亮当前所选的文字, 双击后全文这个词或变量都会变高亮.
+Open In Browser: 右键打开浏览器.
+atom-clock: 在bar显示 时间
+autocomplete-js-import: 模块导入智能提示
+autocomplete-modules: 模块智能提示【node_modules】
+```
+
 ## 数据库操作
 
 查看数据库可已使用``` $ show databases ``` 查看已存在数据库
