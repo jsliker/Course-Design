@@ -1,4 +1,4 @@
-## 基于Vmware虚拟机VMwareTools导入
+## 基于Vmware虚拟机的VMwareTools导入
 
 * 1、点击右下角的小光盘，点击settings
 * 2、进入新页面选择VMwareTools的光驱
