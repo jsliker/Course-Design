@@ -2,17 +2,12 @@
 ## ubuntu的下载
 ### 步骤：
 1. 下载ubuntu的镜像到本地,这里给出ubuntu16.04的地址: [下载地址](https://www.ubuntu.com/download/desktop/thank-you?country=CN&version=16.04.2&architecture=amd64)。  
-2. 也可以在地址栏输入地址：ubuntu.com,然后点击图片如下：
-![](./pic/ubuntu/ubuntu03.png)
-选择需要的ubuntu下载即可。  
+2. 也可以在地址栏输入地址：ubuntu.com。
+选择需要的ubuntu下载即可。  
 ## ubuntu的安装
 1.打开VMware开始安装，点击create a new virtual mechine新建一个虚拟机。  
-![](./pic/ubuntu/ubuntu01.png)  
-然后在下图的红框里面选择要安装的系统的镜像，即上面下载的ubuntu的镜像。  
-![](./pic/ubuntu/ubuntu02.png)    
 
-在安装的时候会问你账户和密码，这里我设置账户为linux，密码为1,，如下图  
-![](./pic/ubuntu/ubuntu04.png)     
+在安装的时候会问你账户和密码，这里我设置账户为linux，密码为1。
 
 然后选择需要安装的系统盘即可等待安装完成。  
 ## ubuntu的使用  
